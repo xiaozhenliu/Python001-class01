@@ -1,13 +1,18 @@
+# 从猫眼热门电影列表中获取前10名的影片名称、类型、上映时间，并保存在
+# "maoyan_top10.csv"中
+# Created by Xiaozhen Liu. Edited on 2020/06/28 09:54 UTC+8
+
 import requests
 from bs4 import BeautifulSoup as bs
 
+# 从保存的HTML文件中读取网页内容，网页获取见week1_requests.py
 fname = 'maoyan_response.html'
 
 f = open(fname, 'r', encoding='utf-8')
 response = f.read()
 
+# 找到包含名称、类型、上映时间的HTML代码部分
 bs_info = bs(response, 'html.parser')
-
 movieinfo = bs_info.find("div",class_="movies-list")
 movie_hover = movieinfo.find_all("div",class_="movie-hover-title")
 

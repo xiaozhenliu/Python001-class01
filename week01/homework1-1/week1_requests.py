@@ -1,4 +1,5 @@
-# 使用requests库获取豆瓣影评
+# 使用requests库获取猫眼电影前10热门，并保存为网页
+# Created by Xiaozhen Liu. Edited on 2020/06/28 09:59 UTC+
 
 import requests
 from bs4 import BeautifulSoup as bs
@@ -16,4 +17,3 @@ with open(fname, 'w',encoding='utf-8') as file_object:
     file_object.write(response.text)
 
 print(f'返回码是: {response.status_code}')
-
